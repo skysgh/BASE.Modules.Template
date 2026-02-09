@@ -1,4 +1,4 @@
-﻿using App.Base.Presentation.Web.APIs.Rest.Controllers.Base;
+using App.Base.Presentation.Web.APIs.Rest.Controllers.Base;
 using App.Base.Shared.Attributes;
 using App.Modules.KW_TEMPLATE.Presentation.Web.APIs.Constants;
 using Microsoft.AspNetCore.Mvc;

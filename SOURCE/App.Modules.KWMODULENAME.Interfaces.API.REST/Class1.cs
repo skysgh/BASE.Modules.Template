@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Interfaces.API.REST
+namespace App.Modules.KWMODULENAME.Interfaces.API.REST
 {
     /// <summary>
     /// TODO: Document

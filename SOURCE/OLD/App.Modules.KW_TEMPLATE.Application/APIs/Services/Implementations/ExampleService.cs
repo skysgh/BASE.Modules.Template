@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KW_TEMPLATE.Application.APIs.Services.Implementations
+namespace App.Modules.KW_TEMPLATE.Application.APIs.Services.Implementations
 {
     /// <summary>
     /// An example implementation of the

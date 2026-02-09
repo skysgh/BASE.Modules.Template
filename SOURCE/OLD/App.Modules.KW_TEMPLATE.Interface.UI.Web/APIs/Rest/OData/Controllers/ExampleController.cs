@@ -1,4 +1,4 @@
-﻿using App.Base.Infrastructure.Services;
+using App.Base.Infrastructure.Services;
 using App.Base.Presentation.Web.APIs.OData.Controllers.Base;
 using App.Base.Shared.Attributes;
 using App.Modules.KW_TEMPLATE.Presentation.Web.APIs.Constants;

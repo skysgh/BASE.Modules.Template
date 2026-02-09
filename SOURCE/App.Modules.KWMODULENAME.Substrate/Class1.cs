@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Substrate
+namespace App.Modules.KWMODULENAME.Substrate
 {
     /// <summary>
     /// TODO: Document

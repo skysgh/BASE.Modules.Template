@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Domain
+namespace App.Modules.KWMODULENAME.Domain
 {
     /// <summary>
     /// TODO: Document

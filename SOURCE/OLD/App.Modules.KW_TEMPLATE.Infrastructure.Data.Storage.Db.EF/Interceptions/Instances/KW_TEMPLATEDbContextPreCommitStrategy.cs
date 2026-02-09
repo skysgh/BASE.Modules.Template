@@ -1,4 +1,4 @@
-﻿using App.Base.Infrastructure.Services;
+using App.Base.Infrastructure.Services;
 using App.Base.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using App.Base.Infrastructure.Storage.Db.EF.Interceptors.Implementations;

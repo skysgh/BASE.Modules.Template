@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Application
+namespace App.Modules.KWMODULENAME.Application
 {
     /// <summary>
     /// TODO: Document

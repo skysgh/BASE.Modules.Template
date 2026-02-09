@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Interfaces.UI.Web
+namespace App.Modules.KWMODULENAME.Interfaces.UI.Web
 {
     /// <summary>
     /// TODO: Document

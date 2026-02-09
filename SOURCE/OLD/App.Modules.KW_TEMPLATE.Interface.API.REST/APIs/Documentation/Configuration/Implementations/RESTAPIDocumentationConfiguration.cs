@@ -1,4 +1,4 @@
-﻿using App.Base.Application.APIs.Configuration;
+using App.Base.Application.APIs.Configuration;
 using App.Base.Presentation.Web.APIs.Constants;
 using App.Base.Presentation.Web.APIs.Documentation.Configuration.Implemenation.Base;
 using App.Base.Shared.Constants;

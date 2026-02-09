@@ -1,43 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFramework>net8.0</TargetFramework>
-	  <ImplicitUsings>enable</ImplicitUsings>
-	  <Nullable>enable</Nullable>
-	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
-	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	  <Title>$(AssemblyName)</Title>
-	  <Copyright>Copyright $(Authors)</Copyright>
-	  <PackageReadmeFile>readme.md</PackageReadmeFile>
-	  <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-	  <AnalysisLevel>preview-recommended</AnalysisLevel>
-	  <EnableNETAnalyzers>True</EnableNETAnalyzers>
-	  <Company>MachineBrains, Inc.</Company>
-	  <Product>BASE</Product>
-	  <!--<BaseOutputPath>..\..\..\..\SOURCE\App.Service.Host\MODULES\</BaseOutputPath>-->
+    <Title>$(AssemblyName)</Title>
+    <PackageReadmeFile>Packaging/readme.nuget.md</PackageReadmeFile>
+    <RootNamespace>App.Modules.KWMODULENAME</RootNamespace>
   </PropertyGroup>
-
-	<PropertyGroup>
-		<PackageReadmeFile>Packaging/readme.nuget.md</PackageReadmeFile>
-	</PropertyGroup>
-
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <WarningLevel>9999</WarningLevel>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    <WarningLevel>9999</WarningLevel>
-  </PropertyGroup>
-
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BASE.Modules.Base\SOURCE\App.Modules.Base.Substrate.Contracts\App.Modules.Base.Substrate.Contracts.csproj" />
-    <ProjectReference Include="..\..\..\BASE.Modules.Base\SOURCE\App.Modules.Base.Substrate\App.Modules.Base.Substrate.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate.Contracts\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
   </ItemGroup>
-
 
   <ItemGroup>
     <None Update="Packaging\readme.nuget.md">

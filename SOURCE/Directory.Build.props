@@ -1,0 +1,24 @@
+<Project>
+  <!-- Shared build properties for Template module -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Company>MachineBrains, Inc.</Company>
+    <Product>BASE</Product>
+    <Authors>MachineBrains</Authors>
+    <Copyright>Copyright $(Authors)</Copyright>
+  </PropertyGroup>
+
+  <!-- Warning suppressions for code analysis -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+</Project>

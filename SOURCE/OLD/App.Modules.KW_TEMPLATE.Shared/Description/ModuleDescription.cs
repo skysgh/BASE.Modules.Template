@@ -1,4 +1,4 @@
-﻿using App.Base.Shared.Models.Contracts;
+using App.Base.Shared.Models.Contracts;
 
 namespace App.Modules.KW_TEMPLATE.Application.APIs.Services.Configuration
 {

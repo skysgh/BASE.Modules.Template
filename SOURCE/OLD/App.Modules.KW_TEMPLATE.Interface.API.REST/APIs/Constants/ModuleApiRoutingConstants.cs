@@ -1,4 +1,4 @@
-﻿using App.Base.Presentation.Web.APIs.Constants;
+using App.Base.Presentation.Web.APIs.Constants;
 using App.Modules.KW_TEMPLATE.Shared.Constants;
 using System;
 using System.Collections.Generic;

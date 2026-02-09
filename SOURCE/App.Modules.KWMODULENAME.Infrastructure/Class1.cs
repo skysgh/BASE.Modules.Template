@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Infrastructure
+namespace App.Modules.KWMODULENAME.Infrastructure
 {
     /// <summary>
     /// TODO: Document

@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Interfaces.API.OData
+namespace App.Modules.KWMODULENAME.Interfaces.API.OData
 {
     /// <summary>
     /// TODO: Document

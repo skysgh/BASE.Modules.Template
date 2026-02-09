@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.Interfaces.Models
+namespace App.Modules.KWMODULENAME.Interfaces.Models
 {
     /// <summary>
     /// TODO: Document
