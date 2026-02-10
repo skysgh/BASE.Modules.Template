@@ -1,4 +1,4 @@
-namespace App.Modules.KWMODULENAME.Substrate
+namespace App.Modules.KWMODULENAME.Domain.Domains.X.Services.Implementations
 {
     /// <summary>
     /// TODO: Document

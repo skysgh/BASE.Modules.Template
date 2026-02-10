@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <Title>$(AssemblyName)</Title>
-    <PackageReadmeFile>Packaging/readme.nuget.md</PackageReadmeFile>
-    <RootNamespace>App.Modules.KWMODULENAME</RootNamespace>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+      <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+      <RootNamespace>App.Modules.KWMODULENAME</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,10 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Packaging\readme.nuget.md">
+    <None Update="_Packaging\readme.nuget.md">
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Domains\X\" />
+    <Folder Include="Infrastructure\Domains\X\" />
   </ItemGroup>
 
 </Project>

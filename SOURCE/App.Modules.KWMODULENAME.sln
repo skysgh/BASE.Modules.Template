@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CONFIGURATION", "CONFIGURAT
 		00.Scripts\post-build.ps1 = 00.Scripts\post-build.ps1
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.KWMODULENAME.Substrate", "App.Modules.KWMODULENAME.Substrate\App.Modules.KWMODULENAME.Substrate.csproj", "{188AD632-58FE-4129-927D-87E74FEE1BE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.KWMODULENAME.Shared", "App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj", "{188AD632-58FE-4129-927D-87E74FEE1BE2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Modules.KWMODULENAME.Infrastructure", "App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj", "{BAD5E10A-A853-4471-9268-D6183B321494}"
 EndProject

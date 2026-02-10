@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <Title>$(AssemblyName)</Title>
-    <PackageReadmeFile>Packaging/readme.nuget.md</PackageReadmeFile>
-  </PropertyGroup>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+        </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
@@ -15,10 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Packaging\readme.nuget.md">
+    <None Update="_Packaging\readme.nuget.md">
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domains\X\Configuration\" />
   </ItemGroup>
 
 </Project>

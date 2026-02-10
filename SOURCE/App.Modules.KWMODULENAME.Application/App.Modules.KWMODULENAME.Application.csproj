@@ -1,8 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Title>$(AssemblyName)</Title>
-  </PropertyGroup>
+    <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
+</PropertyGroup>
+    
+
 
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
@@ -13,7 +16,19 @@
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Data.EF\App.Modules.KWMODULENAME.Infrastructure.Data.EF.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.Models\App.Modules.KWMODULENAME.Interfaces.Models.csproj" />
-    <ProjectReference Include="..\App.Modules.KWMODULENAME.Substrate\App.Modules.KWMODULENAME.Substrate.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="_Packaging\readme.nuget.md">
+      <PackagePath>\</PackagePath>
+      <Pack>true</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domains\X\Configuration\" />
+    <Folder Include="Domains\X\Models\" />
   </ItemGroup>
 
 </Project>
