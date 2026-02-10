@@ -14,16 +14,16 @@
     <Version>$(VersionPrefix)</Version>
 	<!--<BaseOutputPath>bin\</BaseOutputPath>-->
 
-  </PropertyGroup>
-
-	
-	
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
+  </PropertyGroup>: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

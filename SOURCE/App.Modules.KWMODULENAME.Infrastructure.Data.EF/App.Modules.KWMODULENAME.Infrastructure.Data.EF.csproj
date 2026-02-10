@@ -5,6 +5,8 @@
     <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
       <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
       <RootNamespace>App.Modules.KWMODULENAME.Infrastructure</RootNamespace>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

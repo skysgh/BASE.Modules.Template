@@ -7,6 +7,8 @@
     <AssemblyName>App.Modules.KW_TEMPLATE.Presentation.Web</AssemblyName>
     <RootNamespace>App.Modules.KW_TEMPLATE.Presentation.Web</RootNamespace>
     <BaseOutputPath>..\..\..\..\SOURCE\App.Service.Host\MODULES\</BaseOutputPath>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <!--<ItemGroup>

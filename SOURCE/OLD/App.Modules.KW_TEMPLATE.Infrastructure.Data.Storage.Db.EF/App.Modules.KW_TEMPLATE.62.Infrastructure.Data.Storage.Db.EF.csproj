@@ -8,14 +8,16 @@
     <AssemblyName>App.Modules.KW_TEMPLATE.Infrastructure.Data.Storage.Db.EF</AssemblyName>
 	  <BaseOutputPath>..\..\..\..\SOURCE\App.Service.Host\MODULES\</BaseOutputPath>
 	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
-  </PropertyGroup>
-	
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
+  </PropertyGroup>: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+      <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

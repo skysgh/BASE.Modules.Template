@@ -3,7 +3,9 @@
   <PropertyGroup>
     <Title>$(AssemblyName)</Title>
     <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
-        </PropertyGroup>
+            <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <NoWarn>$(NoWarn);CA1716</NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\readme.md" Pack="True" PackagePath="\" />
