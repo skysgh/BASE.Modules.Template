@@ -18,7 +18,7 @@
 
   <!-- Warning suppressions for code analysis -->
   <PropertyGroup>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0090</NoWarn>
   </PropertyGroup>
 
 </Project>
