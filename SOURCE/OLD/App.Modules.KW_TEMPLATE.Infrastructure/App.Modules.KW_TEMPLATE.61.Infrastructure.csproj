@@ -10,15 +10,15 @@
     <BaseOutputPath>..\..\..\..\SOURCE\App.Service.Host\MODULES\</BaseOutputPath>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
       <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
-    <NoWarn>$(NoWarn);CA1716</NoWarn>
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
   </PropertyGroup>: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
-    <NoWarn>$(NoWarn);CA1716</NoWarn>
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
       <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
-    <NoWarn>$(NoWarn);CA1716</NoWarn>
+    <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
