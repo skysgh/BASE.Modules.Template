@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Domain\App.Modules.KWMODULENAME.Domain.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Data.EF\App.Modules.KWMODULENAME.Infrastructure.Data.EF.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
@@ -26,11 +28,6 @@
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domains\X\Configuration\" />
-    <Folder Include="Domains\X\Models\" />
   </ItemGroup>
 
 </Project>

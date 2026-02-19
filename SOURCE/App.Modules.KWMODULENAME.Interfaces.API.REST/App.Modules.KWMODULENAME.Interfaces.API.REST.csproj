@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Title>$(AssemblyName)</Title>
     <PackageReadmeFile>_Packaging/readme.nuget.md</PackageReadmeFile>
-            <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
+    <!-- CA1716: Namespace conflicts with reserved keywords like 'Shared', 'Interface' -->
     <NoWarn>$(NoWarn);CA1716;IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008</NoWarn>
   </PropertyGroup>
 
@@ -12,7 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OData" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Application\App.Modules.Sys.Application.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.Models\App.Modules.KWMODULENAME.Interfaces.Models.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
@@ -24,10 +33,6 @@
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domains\" />
   </ItemGroup>
 
 </Project>

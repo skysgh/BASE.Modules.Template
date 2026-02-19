@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure\App.Modules.KWMODULENAME.Infrastructure.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
