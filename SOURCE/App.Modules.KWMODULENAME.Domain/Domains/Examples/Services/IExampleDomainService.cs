@@ -1,4 +1,4 @@
-using App.Modules.Sys.Domain.Services;
+using App.Modules.Sys.Shared.Domains.Services;
 
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services
 {
