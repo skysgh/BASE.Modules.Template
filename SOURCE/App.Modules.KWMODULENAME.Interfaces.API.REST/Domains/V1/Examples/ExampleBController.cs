@@ -1,9 +1,9 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants;
-using App.Modules.KWMODULENAME.Interfaces.Models.Dtos;
-using App.Modules.Sys.Interface.Controllers;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
+using App.Modules.Sys.Controllers;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {

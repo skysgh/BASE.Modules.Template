@@ -1,4 +1,4 @@
-namespace App.Modules.KWMODULENAME.Interfaces.Models.Dtos
+namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos
 {
     /// <summary>
     /// Data transfer object for <see cref="Shared.Domains.Examples.Models.ExampleB"/>.

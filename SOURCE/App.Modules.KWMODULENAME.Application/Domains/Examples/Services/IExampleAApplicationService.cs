@@ -1,4 +1,4 @@
-using App.Modules.KWMODULENAME.Interfaces.Models.Dtos;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.Sys.Application;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services

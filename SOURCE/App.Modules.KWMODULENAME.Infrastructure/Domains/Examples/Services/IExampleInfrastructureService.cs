@@ -1,3 +1,5 @@
+using App.Modules.Sys.Infrastructure.Services;
+
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Services
 {
     /// <summary>
@@ -9,7 +11,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Services
     /// Only infrastructure assemblies should reference third-party packages.
     /// The rest of the code depends on app-specific interfaces defined in Shared or Domain.
     /// </remarks>
-    public interface IExampleInfrastructureService
+    public interface IExampleInfrastructureService : IHasInfrastructureService
     {
     }
 }

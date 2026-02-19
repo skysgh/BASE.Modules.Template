@@ -1,6 +1,7 @@
-using App.Modules.KWMODULENAME.Interfaces.Models.Dtos;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models;
 using App.Modules.Sys.Shared.ObjectMaps;
+using App.Modules.Sys.Shared.ObjectMaps.Models.Implementations.Base;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
 {

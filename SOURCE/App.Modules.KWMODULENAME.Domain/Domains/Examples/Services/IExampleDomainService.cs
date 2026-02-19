@@ -1,3 +1,5 @@
+using App.Modules.Sys.Domain.Services;
+
 namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services
 {
     /// <summary>
@@ -9,7 +11,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Services
     /// goes here when it spans multiple entities or requires coordination.
     /// Application services orchestrate; domain services encapsulate rules.
     /// </remarks>
-    public interface IExampleDomainService
+    public interface IExampleDomainService : IHasDomainService
     {
     }
 }

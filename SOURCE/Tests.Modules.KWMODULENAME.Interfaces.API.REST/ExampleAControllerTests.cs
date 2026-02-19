@@ -1,6 +1,6 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples;
-using App.Modules.KWMODULENAME.Interfaces.Models.Dtos;
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using NSubstitute;
 
 namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
