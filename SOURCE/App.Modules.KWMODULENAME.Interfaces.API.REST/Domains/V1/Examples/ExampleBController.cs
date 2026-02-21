@@ -1,9 +1,9 @@
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants;
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
+using App.Modules.Sys.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using App.Modules.Sys.Controllers;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {
@@ -17,7 +17,6 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </remarks>
     [ApiController]
     [Route(ApiRoutes.Rest.V1.ExampleBs.Base)]
-    [Produces("application/json")]
     public class ExampleBController : ControllerBase, IHasController
     {
         private readonly IExampleBApplicationService _service;
@@ -41,6 +40,11 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
         /// belonging to this parent. Example: <c>?parentId=00000000-0000-0000-0000-000000000001</c>
         /// </param>
         /// <returns>Queryable of ExampleB DTOs.</returns>
+        /// <remarks>
+        /// <b>Watermark support:</b> The global <c>WatermarkDateFilter</c> automatically applies
+        /// <c>?modifiedAfter=</c> filtering when the DTO has a timestamp property. No per-controller
+        /// code needed — this works on all GET collection endpoints returning IQueryable.
+        /// </remarks>
         /// <response code="200">Returns the entities.</response>
         [HttpGet]
         [EnableQuery]

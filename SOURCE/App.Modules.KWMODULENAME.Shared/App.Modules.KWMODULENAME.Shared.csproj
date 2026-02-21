@@ -45,6 +45,7 @@
   <ItemGroup>
     <Folder Include="Domain\Domains\X\" />
     <Folder Include="Infrastructure\Domains\X\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 
 </Project>

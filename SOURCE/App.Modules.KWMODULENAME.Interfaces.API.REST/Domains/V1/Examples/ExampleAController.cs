@@ -1,9 +1,9 @@
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
 using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants;
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
+using App.Modules.Sys.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using App.Modules.Sys.Controllers;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {
@@ -24,7 +24,6 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </remarks>
     [ApiController]
     [Route(ApiRoutes.Rest.V1.ExampleAs.Base)]
-    [Produces("application/json")]
     public class ExampleAController : ControllerBase, IHasController
     {
         private readonly IExampleAApplicationService _service;
@@ -49,6 +48,12 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
         /// Example: <c>?modifiedAfter=2025-01-15T00:00:00Z</c>
         /// </param>
         /// <returns>Queryable of ExampleA DTOs.</returns>
+        /// <remarks>
+        /// <b>Note:</b> The global <c>WatermarkDateFilter</c> also applies <c>?modifiedAfter=</c>
+        /// automatically to all IQueryable GET endpoints whose DTO has a timestamp property.
+        /// This explicit parameter is kept here for Swagger documentation and as a teaching example
+        /// of how the service-level <c>GetModifiedAfter()</c> method works.
+        /// </remarks>
         /// <response code="200">Returns the entities.</response>
         [HttpGet]
         [EnableQuery]

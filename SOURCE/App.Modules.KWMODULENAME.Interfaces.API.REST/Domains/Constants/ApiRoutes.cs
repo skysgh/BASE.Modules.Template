@@ -1,4 +1,3 @@
-using App.Modules.KWMODULENAME.Shared.Constants;
 using App.Modules.Sys.Substrate.Infrastructure.Constants;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants
@@ -17,7 +16,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants
         /// <summary>
         /// Module identifier for URL building.
         /// </summary>
-        private const string ModuleId = KWMODULENAMEModuleConstants.Key;
+        private const string ModuleId = ModuleConstants.Key;
 
         /// <summary>
         /// REST module base: api/rest/kwmodulename

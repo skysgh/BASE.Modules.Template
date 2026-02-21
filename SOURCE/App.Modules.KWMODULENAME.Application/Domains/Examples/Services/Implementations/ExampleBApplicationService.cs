@@ -1,5 +1,5 @@
-using App.Modules.KWMODULENAME.Infrastructure.Data.EF;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
+using App.Modules.KWMODULENAME.Infrastructure.Data.EF;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models;
 using App.Modules.Sys.Infrastructure.Services;
 
@@ -12,7 +12,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
     /// </summary>
     public class ExampleBApplicationService : IExampleBApplicationService
     {
-        private readonly KWMODULENAMEDbContext _db;
+        private readonly ModuleDbContext _db;
         private readonly IObjectMappingService _mapper;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
         /// </summary>
         /// <param name="db">The module database context.</param>
         /// <param name="mapper">The object mapping service for ProjectTo projections.</param>
-        public ExampleBApplicationService(KWMODULENAMEDbContext db, IObjectMappingService mapper)
+        public ExampleBApplicationService(ModuleDbContext db, IObjectMappingService mapper)
         {
             ArgumentNullException.ThrowIfNull(db);
             ArgumentNullException.ThrowIfNull(mapper);

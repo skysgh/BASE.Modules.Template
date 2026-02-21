@@ -1,4 +1,5 @@
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models;
+using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.DbContexts.Implementations.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Data.EF
@@ -8,13 +9,13 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Data.EF
     /// Each module has its own DbContext to enforce bounded context separation.
     /// Schema configurations are discovered via <c>IEntityTypeConfiguration&lt;T&gt;</c>.
     /// </summary>
-    public class KWMODULENAMEDbContext : DbContext
+    public class ModuleDbContext : ModuleDbContextBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KWMODULENAMEDbContext"/> class.
+        /// Initializes a new instance of the <see cref="ModuleDbContext"/> class.
         /// </summary>
         /// <param name="options">The database context options.</param>
-        public KWMODULENAMEDbContext(DbContextOptions<KWMODULENAMEDbContext> options)
+        public ModuleDbContext(DbContextOptions<ModuleDbContext> options)
             : base(options)
         {
         }
@@ -33,10 +34,13 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Data.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             ArgumentNullException.ThrowIfNull(modelBuilder);
+            // Set schema before base call so all entities use this module's schema.
+            this.SchemaKey = App.Modules.KWMODULENAME.ModuleConstants.DbSchemaKey;
+
             base.OnModelCreating(modelBuilder);
 
             // EF configurations are discovered via IEntityTypeConfiguration<T>
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(KWMODULENAMEDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ModuleDbContext).Assembly);
         }
     }
 }

@@ -1,6 +1,6 @@
+using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Implementations;
 using App.Modules.KWMODULENAME.Infrastructure.Data.EF;
-using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models;
 using App.Modules.Sys.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +15,7 @@ namespace Tests.Modules.KWMODULENAME.Application
     /// </summary>
     public class ExampleAApplicationServiceTests : IDisposable
     {
-        private readonly KWMODULENAMEDbContext _db;
+        private readonly ModuleDbContext _db;
         private readonly IObjectMappingService _mapper;
         private readonly ExampleAApplicationService _service;
 
@@ -24,11 +24,11 @@ namespace Tests.Modules.KWMODULENAME.Application
         /// </summary>
         public ExampleAApplicationServiceTests()
         {
-            var options = new DbContextOptionsBuilder<KWMODULENAMEDbContext>()
+            var options = new DbContextOptionsBuilder<ModuleDbContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
 
-            this._db = new KWMODULENAMEDbContext(options);
+            this._db = new ModuleDbContext(options);
             this._mapper = Substitute.For<IObjectMappingService>();
             this._service = new ExampleAApplicationService(this._db, this._mapper);
         }
