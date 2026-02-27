@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -13,7 +13,7 @@
     <!-- CA1707: Underscores in test method names (WhenX_ThenY pattern) -->
     <!-- CS1591: Missing XML doc on test methods -->
     <!-- IDE0055: Formatting differences between IDE and CLI builds -->
-    <NoWarn>$(NoWarn);IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0055;CA1707;CS1591;NU1900;NU1901;NU1902;NU1903;NU1904</NoWarn>
+    <NoWarn>$(NoWarn);IDE0290;IDE0060;IDE0046;IDE0066;IDE0063;IDE0057;IDE0028;IDE0071;IDE0075;IDE0029;IDE0008;IDE0130;IDE0305;IDE0055;CA1707;CS1591;NU1900;NU1901;NU1902;NU1903;NU1904;xUnit1051</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,7 +30,7 @@
   <ItemGroup>
     <PackageReference Include="coverlet.collector" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.v3" />
     <PackageReference Include="xunit.runner.visualstudio" />
   </ItemGroup>
 
@@ -54,3 +54,8 @@
   </ItemGroup>
 
 </Project>
+
+
+
+
+
