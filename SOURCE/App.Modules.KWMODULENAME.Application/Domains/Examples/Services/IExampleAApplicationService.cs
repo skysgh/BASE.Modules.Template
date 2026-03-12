@@ -28,6 +28,6 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services
         /// </summary>
         /// <param name="modifiedAfter">Only return entities modified after this UTC timestamp.</param>
         /// <returns>An IQueryable of <see cref="ExampleADto"/> filtered by modification date.</returns>
-        IQueryable<ExampleADto> GetModifiedAfter(DateTime modifiedAfter);
+        IQueryable<ExampleADto> GetModifiedAfter(DateTimeOffset modifiedAfter);
     }
 }

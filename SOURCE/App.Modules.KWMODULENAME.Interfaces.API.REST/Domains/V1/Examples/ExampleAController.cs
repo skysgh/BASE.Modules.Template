@@ -58,7 +58,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
         [HttpGet]
         [EnableQuery]
         [ProducesResponseType(typeof(IQueryable<ExampleADto>), 200)]
-        public IQueryable<ExampleADto> GetAll([FromQuery] DateTime? modifiedAfter = null)
+        public IQueryable<ExampleADto> GetAll([FromQuery] DateTimeOffset? modifiedAfter = null)
         {
             if (modifiedAfter.HasValue)
             {

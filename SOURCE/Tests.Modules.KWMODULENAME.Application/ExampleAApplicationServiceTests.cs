@@ -81,7 +81,7 @@ namespace Tests.Modules.KWMODULENAME.Application
         public void WhenGetModifiedAfterCalled_ThenProjectToIsInvokedOnce()
         {
             // Arrange
-            var watermark = DateTime.UtcNow.AddDays(-1);
+            var watermark = DateTimeOffset.UtcNow.AddDays(-1);
             var expectedDtos = new List<ExampleADto>().AsQueryable();
             this._mapper
                 .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())

@@ -30,6 +30,6 @@ namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Models
         /// <summary>
         /// Gets or sets the date this entity was created (UTC).
         /// </summary>
-        public DateTime CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

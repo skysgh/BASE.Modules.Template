@@ -32,11 +32,11 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos
         /// <summary>
         /// Gets or sets the date this entity was created (UTC).
         /// </summary>
-        public DateTime CreatedUtc { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the date this entity was last modified (UTC).
         /// </summary>
-        public DateTime? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

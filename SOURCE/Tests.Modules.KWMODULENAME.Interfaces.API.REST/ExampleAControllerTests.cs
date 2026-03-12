@@ -48,7 +48,7 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
         public void WhenGetAllCalledWithWatermark_ThenDelegatesToGetModifiedAfter()
         {
             // Arrange
-            var watermark = DateTime.UtcNow.AddDays(-1);
+            var watermark = DateTimeOffset.UtcNow.AddDays(-1);
             var expectedDtos = new List<ExampleADto>
             {
                 new ExampleADto { Id = Guid.NewGuid(), Title = "Modified" }
@@ -78,7 +78,7 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 
             // Assert
             this._mockService.Received(1).GetAll();
-            this._mockService.DidNotReceive().GetModifiedAfter(Arg.Any<DateTime>());
+            this._mockService.DidNotReceive().GetModifiedAfter(Arg.Any<DateTimeOffset>());
         }
 
         [Fact]

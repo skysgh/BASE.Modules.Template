@@ -43,7 +43,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Impleme
         }
 
         /// <inheritdoc/>
-        public IQueryable<ExampleADto> GetModifiedAfter(DateTime modifiedAfter)
+        public IQueryable<ExampleADto> GetModifiedAfter(DateTimeOffset modifiedAfter)
         {
             return this._mapper.ProjectTo<ExampleA, ExampleADto>(
                 this._db.ExampleAs.Where(e => e.ModifiedUtc != null && e.ModifiedUtc > modifiedAfter));
