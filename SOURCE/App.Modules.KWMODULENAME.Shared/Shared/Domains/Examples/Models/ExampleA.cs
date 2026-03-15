@@ -1,3 +1,5 @@
+using App.Modules.Sys.Shared.Models.Persistence;
+
 namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Models
 {
     /// <summary>
@@ -5,7 +7,7 @@ namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Models
     /// with an owned title, description, and active flag.
     /// Replace with your actual domain entity when cloning.
     /// </summary>
-    public class ExampleA
+    public class ExampleA : IHasGuidId
     {
         /// <summary>
         /// Gets or sets the unique identifier.
@@ -30,11 +32,11 @@ namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Models
         /// <summary>
         /// Gets or sets the date this entity was created (UTC).
         /// </summary>
-        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTime CreatedUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the date this entity was last modified (UTC).
         /// </summary>
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTime? ModifiedUtc { get; set; }
     }
 }

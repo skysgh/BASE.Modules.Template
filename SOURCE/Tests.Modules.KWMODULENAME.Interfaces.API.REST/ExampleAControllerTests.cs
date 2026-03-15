@@ -7,7 +7,6 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 {
     /// <summary>
     /// Tests for <see cref="ExampleAController"/>.
-    /// Verifies controller delegates to service and returns IQueryable.
     /// </summary>
     public class ExampleAControllerTests
     {
@@ -24,82 +23,41 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
         }
 
         [Fact]
-        public void WhenGetAllCalled_ThenReturnsQueryable()
+        public void WhenGetAllCalled_ThenDelegatesToQuery()
         {
             // Arrange
-            var expectedDtos = new List<ExampleADto>
+            IQueryable<ExampleADto> expectedDtos = new List<ExampleADto>
             {
                 new ExampleADto { Id = Guid.NewGuid(), Title = "First" },
                 new ExampleADto { Id = Guid.NewGuid(), Title = "Second" }
             }.AsQueryable();
-
-            this._mockService.GetAll().Returns(expectedDtos);
+            this._mockService.Query().Returns(expectedDtos);
 
             // Act
-            var result = this._controller.GetAll();
+            IQueryable<ExampleADto> result = this._controller.GetAll();
 
             // Assert
-            Assert.NotNull(result);
             Assert.Equal(2, result.Count());
-            this._mockService.Received(1).GetAll();
+            this._mockService.Received(1).Query();
         }
 
         [Fact]
-        public void WhenGetAllCalledWithWatermark_ThenDelegatesToGetModifiedAfter()
+        public void WhenGetByIdCalled_ThenDelegatesToQueryById()
         {
             // Arrange
-            var watermark = DateTimeOffset.UtcNow.AddDays(-1);
-            var expectedDtos = new List<ExampleADto>
-            {
-                new ExampleADto { Id = Guid.NewGuid(), Title = "Modified" }
-            }.AsQueryable();
-
-            this._mockService.GetModifiedAfter(watermark).Returns(expectedDtos);
-
-            // Act
-            var result = this._controller.GetAll(modifiedAfter: watermark);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.Single(result);
-            this._mockService.Received(1).GetModifiedAfter(watermark);
-            this._mockService.DidNotReceive().GetAll();
-        }
-
-        [Fact]
-        public void WhenGetAllCalledWithoutWatermark_ThenDelegatesToGetAll()
-        {
-            // Arrange
-            var expectedDtos = new List<ExampleADto>().AsQueryable();
-            this._mockService.GetAll().Returns(expectedDtos);
-
-            // Act
-            this._controller.GetAll(modifiedAfter: null);
-
-            // Assert
-            this._mockService.Received(1).GetAll();
-            this._mockService.DidNotReceive().GetModifiedAfter(Arg.Any<DateTimeOffset>());
-        }
-
-        [Fact]
-        public void WhenGetByIdCalled_ThenDelegatesToService()
-        {
-            // Arrange
-            var id = Guid.NewGuid();
-            var expectedDtos = new List<ExampleADto>
+            Guid id = Guid.NewGuid();
+            IQueryable<ExampleADto> expectedDtos = new List<ExampleADto>
             {
                 new ExampleADto { Id = id, Title = "Found" }
             }.AsQueryable();
-
-            this._mockService.GetById(id).Returns(expectedDtos);
+            this._mockService.QueryById(id).Returns(expectedDtos);
 
             // Act
-            var result = this._controller.GetById(id);
+            IQueryable<ExampleADto> result = this._controller.GetById(id);
 
             // Assert
-            Assert.NotNull(result);
             Assert.Single(result);
-            this._mockService.Received(1).GetById(id);
+            this._mockService.Received(1).QueryById(id);
         }
 
         [Fact]

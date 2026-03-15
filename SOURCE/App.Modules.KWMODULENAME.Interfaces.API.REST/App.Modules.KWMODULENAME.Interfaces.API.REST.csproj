@@ -22,7 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Application\App.Modules.Sys.Application.csproj" />
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
-    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />    <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Infrastructure.Web\App.Modules.Sys.Infrastructure.Web.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Application\App.Modules.KWMODULENAME.Application.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
   </ItemGroup>
 

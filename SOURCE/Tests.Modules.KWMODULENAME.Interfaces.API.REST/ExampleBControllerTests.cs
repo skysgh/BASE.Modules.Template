@@ -7,7 +7,6 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
 {
     /// <summary>
     /// Tests for <see cref="ExampleBController"/>.
-    /// Verifies controller delegates to service and returns IQueryable.
     /// </summary>
     public class ExampleBControllerTests
     {
@@ -24,82 +23,60 @@ namespace Tests.Modules.KWMODULENAME.Interfaces.API.REST
         }
 
         [Fact]
-        public void WhenGetAllCalled_ThenReturnsQueryable()
+        public void WhenGetAllCalled_ThenDelegatesToQuery()
         {
             // Arrange
-            var expectedDtos = new List<ExampleBDto>
+            IQueryable<ExampleBDto> expectedDtos = new List<ExampleBDto>
             {
                 new ExampleBDto { Id = Guid.NewGuid(), Name = "First" },
                 new ExampleBDto { Id = Guid.NewGuid(), Name = "Second" }
             }.AsQueryable();
-
-            this._mockService.GetAll().Returns(expectedDtos);
+            this._mockService.Query().Returns(expectedDtos);
 
             // Act
-            var result = this._controller.GetAll();
+            IQueryable<ExampleBDto> result = this._controller.GetAll();
 
             // Assert
-            Assert.NotNull(result);
             Assert.Equal(2, result.Count());
-            this._mockService.Received(1).GetAll();
+            this._mockService.Received(1).Query();
         }
 
         [Fact]
-        public void WhenGetAllCalledWithParentId_ThenDelegatesToGetByParent()
+        public void WhenGetByParentCalled_ThenDelegatesToService()
         {
             // Arrange
-            var parentId = Guid.NewGuid();
-            var expectedDtos = new List<ExampleBDto>
+            Guid parentId = Guid.NewGuid();
+            IQueryable<ExampleBDto> expectedDtos = new List<ExampleBDto>
             {
                 new ExampleBDto { Id = Guid.NewGuid(), ExampleAId = parentId, Name = "Child" }
             }.AsQueryable();
-
             this._mockService.GetByParent(parentId).Returns(expectedDtos);
 
             // Act
-            var result = this._controller.GetAll(parentId: parentId);
+            IQueryable<ExampleBDto> result = this._controller.GetByParent(parentId);
 
             // Assert
-            Assert.NotNull(result);
             Assert.Single(result);
             this._mockService.Received(1).GetByParent(parentId);
-            this._mockService.DidNotReceive().GetAll();
         }
 
         [Fact]
-        public void WhenGetAllCalledWithoutParentId_ThenDelegatesToGetAll()
+        public void WhenGetByIdCalled_ThenDelegatesToQueryById()
         {
             // Arrange
-            var expectedDtos = new List<ExampleBDto>().AsQueryable();
-            this._mockService.GetAll().Returns(expectedDtos);
-
-            // Act
-            this._controller.GetAll(parentId: null);
-
-            // Assert
-            this._mockService.Received(1).GetAll();
-            this._mockService.DidNotReceive().GetByParent(Arg.Any<Guid>());
-        }
-
-        [Fact]
-        public void WhenGetByIdCalled_ThenDelegatesToService()
-        {
-            // Arrange
-            var id = Guid.NewGuid();
-            var expectedDtos = new List<ExampleBDto>
+            Guid id = Guid.NewGuid();
+            IQueryable<ExampleBDto> expectedDtos = new List<ExampleBDto>
             {
                 new ExampleBDto { Id = id, Name = "Found" }
             }.AsQueryable();
-
-            this._mockService.GetById(id).Returns(expectedDtos);
+            this._mockService.QueryById(id).Returns(expectedDtos);
 
             // Act
-            var result = this._controller.GetById(id);
+            IQueryable<ExampleBDto> result = this._controller.GetById(id);
 
             // Assert
-            Assert.NotNull(result);
             Assert.Single(result);
-            this._mockService.Received(1).GetById(id);
+            this._mockService.Received(1).QueryById(id);
         }
 
         [Fact]
