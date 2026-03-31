@@ -1,4 +1,4 @@
-﻿namespace App.Modules.KWMODULENAME.AppEntry
+namespace App.Modules.KWMODULENAME.AppEntry
 {
     public class Class1
     {
