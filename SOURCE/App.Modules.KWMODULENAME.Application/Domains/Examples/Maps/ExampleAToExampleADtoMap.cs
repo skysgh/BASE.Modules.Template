@@ -18,7 +18,7 @@ namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Maps
         /// <inheritdoc/>
         protected override void ConfigureMapping()
         {
-            CreateMap()
+            this.CreateMap()
                 //.Ignore(dest => dest.IsActive)
                 .MapFrom(dest => dest.CreatedUtc, src => src.CreatedUtc)
                 .MapFrom(dest => dest.ModifiedUtc, src => src.ModifiedUtc)
