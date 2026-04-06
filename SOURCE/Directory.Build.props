@@ -25,6 +25,6 @@
 
   <!-- Include license file in NuGet packages and build output -->
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)_LICENSES\LICENSE.txt" Pack="true" PackagePath="" Link="_LICENSES\LICENSE.txt" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(MSBuildThisFileDirectory)_LICENSES\LICENSE.txt" Pack="true" PackagePath="" Link="_LICENSES\LICENSE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Never" />
   </ItemGroup>
 </Project>
