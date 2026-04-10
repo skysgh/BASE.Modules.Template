@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Infrastructure.Data.EF\App.Modules.KWMODULENAME.Infrastructure.Data.EF.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.GraphQL\App.Modules.KWMODULENAME.Interfaces.API.GraphQL.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.OData\App.Modules.KWMODULENAME.Interfaces.API.OData.csproj" />
+    <ProjectReference Include="..\App.Modules.KWMODULENAME.Interfaces.API.REST\App.Modules.KWMODULENAME.Interfaces.API.REST.csproj" />
+  </ItemGroup>
+
 </Project>
