@@ -8,7 +8,8 @@ namespace App.Modules.KWMODULENAME
     public class ModuleConstants
     {
         /// <summary>
-        /// Unique dipsplayable Name to identify this logical module.
+        /// Unique dipsplayable Name to
+        /// identify this logical module.
         /// </summary>
         public const string Name = "KWMODULENAME";
 

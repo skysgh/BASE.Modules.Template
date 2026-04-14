@@ -1,86 +1,68 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services;
-using App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.Constants;
-using App.Modules.Sys.Controllers;
+using App.Modules.KWMODULENAME.Interfaces.API.REST.Constants;
+using App.Modules.Sys.Interfaces.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Query;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
 {
     /// <summary>
     /// REST API controller for ExampleA operations.
-    /// Query endpoints return IQueryable for OData filtering/paging/sorting.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Collection endpoints accept an optional <c>modifiedAfter</c> watermark date.
-    /// Clients pass the last-known timestamp to receive only changes since that point
-    /// (incremental sync pattern).
+    /// Inherits standard CRUST endpoints from
+    /// <see cref="SimpleCrudStateControllerBase{TDto}"/>:
+    /// <list type="bullet">
+    ///   <item><c>GET</c> - all entities with OData query support.</item>
+    ///   <item><c>GET {id}</c> - single entity by identifier.</item>
+    ///   <item><c>GET by-key/{key}</c> - single entity by unique key.</item>
+    ///   <item><c>POST</c> - create a new entity.</item>
+    ///   <item><c>PUT {id}</c> - update an existing entity.</item>
+    ///   <item><c>PATCH {id}/state</c> - transition domain state.</item>
+    ///   <item><c>PATCH {id}/record-state</c> - transition persistence record state.</item>
+    /// </list>
     /// </para>
     /// <para>
-    /// OData provides filtering by active status, creation date, etc.
-    /// Global middleware enforces MaxTop=100 — no unbounded queries.
+    /// OData provides filtering by active status, title, etc.
+    /// Global middleware enforces MaxTop - no unbounded queries.
+    /// </para>
+    /// <para>
+    /// IMPORTANT: It is *essential*
+    /// that Routes and authentication/authorisation
+    /// is not using 'magic strings', but
+    /// only using Constants.
+    /// These constants are defined in this assembly...
+    /// extending constants defined in this LM's Shared project,
+    /// extending constants defined in App.Modules.Sys.Shared assembly
+    /// </para>
+    /// <para>
+    /// IMPORTANT:
+    /// Controllers *must* inherit from
+    /// <see cref="SimpleCrudStateControllerBase{TEntityDto}"/>
+    /// or the slightly more complex
+    /// <see cref="CrudStateControllerBase{TReadDto, TCreateDto, TUpdateDto}"/>
     /// </para>
     /// </remarks>
-    [ApiController]
     [Route(ApiRoutes.Rest.V1.ExampleAs.Base)]
-    public class ExampleAController : ControllerBase, IHasController
-    {
-        private readonly IExampleAApplicationService _service;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ExampleAController"/> class.
-        /// </summary>
-        /// <param name="service">The ExampleA application service.</param>
-        public ExampleAController(IExampleAApplicationService service)
-        {
-            ArgumentNullException.ThrowIfNull(service);
-            this._service = service;
-        }
-
-        /// <summary>
-        /// Gets all ExampleA entities.
-        /// Supports OData query options (<c>$filter</c>, <c>$orderby</c>, <c>$top</c>, <c>$skip</c>, <c>$select</c>).
-        /// </summary>
-        /// <param name="modifiedAfter">
-        /// Optional watermark date (UTC). When provided, returns only entities
-        /// modified after this timestamp. Used for incremental sync.
-        /// Example: <c>?modifiedAfter=2025-01-15T00:00:00Z</c>
-        /// </param>
-        /// <returns>Queryable of ExampleA DTOs.</returns>
-        /// <remarks>
-        /// <b>Note:</b> The global <c>WatermarkDateFilter</c> also applies <c>?modifiedAfter=</c>
-        /// automatically to all IQueryable GET endpoints whose DTO has a timestamp property.
-        /// This explicit parameter is kept here for Swagger documentation and as a teaching example
-        /// of how the service-level <c>GetModifiedAfter()</c> method works.
-        /// </remarks>
-        /// <response code="200">Returns the entities.</response>
-        [HttpGet]
-        [EnableQuery]
-        [ProducesResponseType(typeof(IQueryable<ExampleADto>), 200)]
-        public IQueryable<ExampleADto> GetAll([FromQuery] DateTime? modifiedAfter = null)
-        {
-            if (modifiedAfter.HasValue)
-            {
-                return this._service.GetModifiedAfter(modifiedAfter.Value);
-            }
-
-            return this._service.GetAll();
-        }
-
-        /// <summary>
-        /// Gets a single ExampleA by identifier.
-        /// Supports OData query options (<c>$select</c>).
-        /// </summary>
-        /// <param name="id">The entity identifier.</param>
-        /// <returns>Queryable containing the single entity.</returns>
-        /// <response code="200">Returns the entity.</response>
-        [HttpGet("{id:guid}")]
-        [EnableQuery]
-        [ProducesResponseType(typeof(IQueryable<ExampleADto>), 200)]
-        public IQueryable<ExampleADto> GetById(Guid id)
-        {
-            return this._service.GetById(id);
+	public class ExampleAController : SimpleCrudStateControllerBase<ExampleADto>
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExampleAController"/> class.
+		/// </summary>
+		/// <param name="service">The ExampleA application service.</param>
+		public ExampleAController(IExampleAApplicationService service)
+			: base(service)
+		{
+            // IMPORTANT:
+            // Security is not done using
+            // the simplistic role managed
+            // attributes that .NET provides.
+            // Instead it is handled in the
+            // base controller, using the
+            // service's GetPolicyNameForAction method
+            // which puts to effect the system's Share based authorization system, which is much more flexible and powerful than the simplistic role-based system provided by .NET,
+            // and is a key part of the system's security model.
         }
     }
 }

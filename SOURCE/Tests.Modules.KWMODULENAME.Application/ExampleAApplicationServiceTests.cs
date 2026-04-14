@@ -1,115 +1,92 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Implementations;
-using App.Modules.KWMODULENAME.Infrastructure.Data.EF;
-using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models;
+using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.Sys.Infrastructure.Domains.Diagnostics;
 using App.Modules.Sys.Infrastructure.Services;
-using Microsoft.EntityFrameworkCore;
+using App.Modules.Sys.Shared.Repositories;
 using NSubstitute;
 
 namespace Tests.Modules.KWMODULENAME.Application
 {
-    /// <summary>
-    /// Tests for <see cref="ExampleAApplicationService"/>.
-    /// Verifies that the service correctly delegates to <see cref="IObjectMappingService.ProjectTo{TSource, TTarget}"/>
-    /// and returns IQueryable for deferred execution.
-    /// </summary>
-    public class ExampleAApplicationServiceTests : IDisposable
-    {
-        private readonly ModuleDbContext _db;
-        private readonly IObjectMappingService _mapper;
-        private readonly ExampleAApplicationService _service;
+	/// <summary>
+	/// Tests for <see cref="ExampleAApplicationService"/>.
+	/// Verifies that the CRUST service correctly delegates to the
+	/// repository and mapper via the base class plumbing.
+	/// </summary>
+	public class ExampleAApplicationServiceTests
+	{
+		private readonly ICrustStateRepository<ExampleA> _repository;
+		private readonly IObjectMappingService _mapper;
+		private readonly IAppLogger _logger;
+		private readonly ExampleAApplicationService _service;
 
-        /// <summary>
-        /// Sets up a fresh in-memory DbContext and mocked mapper for each test.
-        /// </summary>
-        public ExampleAApplicationServiceTests()
-        {
-            var options = new DbContextOptionsBuilder<ModuleDbContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                .Options;
+		/// <summary>
+		/// Sets up mocked dependencies for each test.
+		/// </summary>
+		public ExampleAApplicationServiceTests()
+		{
+			this._repository = Substitute.For<ICrustStateRepository<ExampleA>>();
+			this._mapper = Substitute.For<IObjectMappingService>();
+			this._logger = Substitute.For<IAppLogger>();
+			this._service = new ExampleAApplicationService(
+				this._repository, this._mapper, this._logger);
+		}
 
-            this._db = new ModuleDbContext(options);
-            this._mapper = Substitute.For<IObjectMappingService>();
-            this._service = new ExampleAApplicationService(this._db, this._mapper);
-        }
+		[Fact]
+		public void WhenQueryCalled_ThenProjectToIsInvokedOnce()
+		{
+			// Arrange
+			var entities = new List<ExampleA>().AsQueryable();
+			var expectedDtos = new List<ExampleADto>().AsQueryable();
+			this._repository.Query().Returns(entities);
+			this._mapper
+				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
+				.Returns(expectedDtos);
 
-        /// <inheritdoc/>
-        public void Dispose()
-        {
-            this._db.Dispose();
-            GC.SuppressFinalize(this);
-        }
+			// Act
+			var result = this._service.Query();
 
-        [Fact]
-        public void WhenGetAllCalled_ThenProjectToIsInvokedOnce()
-        {
-            // Arrange
-            var expectedDtos = new List<ExampleADto>().AsQueryable();
-            this._mapper
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
-                .Returns(expectedDtos);
+			// Assert
+			Assert.NotNull(result);
+			this._mapper.Received(1)
+				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
+		}
 
-            // Act
-            var result = this._service.GetAll();
+		[Fact]
+		public void WhenQueryByIdCalled_ThenProjectToIsInvokedOnce()
+		{
+			// Arrange
+			var id = Guid.NewGuid();
+			var entities = new List<ExampleA>().AsQueryable();
+			var expectedDtos = new List<ExampleADto>().AsQueryable();
+			this._repository.QueryById(id).Returns(entities);
+			this._mapper
+				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
+				.Returns(expectedDtos);
 
-            // Assert
-            Assert.NotNull(result);
-            this._mapper.Received(1)
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
-        }
+			// Act
+			var result = this._service.QueryById(id);
 
-        [Fact]
-        public void WhenGetByIdCalled_ThenProjectToIsInvokedOnce()
-        {
-            // Arrange
-            var id = Guid.NewGuid();
-            var expectedDtos = new List<ExampleADto>().AsQueryable();
-            this._mapper
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
-                .Returns(expectedDtos);
+			// Assert
+			Assert.NotNull(result);
+			this._mapper.Received(1)
+				.ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
+		}
 
-            // Act
-            var result = this._service.GetById(id);
+		[Fact]
+		public void WhenConstructedWithNullRepository_ThenThrowsArgumentNullException()
+		{
+			// Arrange, Act & Assert
+			Assert.Throws<ArgumentNullException>(() =>
+				new ExampleAApplicationService(null!, this._mapper, this._logger));
+		}
 
-            // Assert
-            Assert.NotNull(result);
-            this._mapper.Received(1)
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
-        }
-
-        [Fact]
-        public void WhenGetModifiedAfterCalled_ThenProjectToIsInvokedOnce()
-        {
-            // Arrange
-            var watermark = DateTime.UtcNow.AddDays(-1);
-            var expectedDtos = new List<ExampleADto>().AsQueryable();
-            this._mapper
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>())
-                .Returns(expectedDtos);
-
-            // Act
-            var result = this._service.GetModifiedAfter(watermark);
-
-            // Assert
-            Assert.NotNull(result);
-            this._mapper.Received(1)
-                .ProjectTo<ExampleA, ExampleADto>(Arg.Any<IQueryable<ExampleA>>());
-        }
-
-        [Fact]
-        public void WhenConstructedWithNullDb_ThenThrowsArgumentNullException()
-        {
-            // Arrange, Act & Assert
-            Assert.Throws<ArgumentNullException>(() =>
-                new ExampleAApplicationService(null!, this._mapper));
-        }
-
-        [Fact]
-        public void WhenConstructedWithNullMapper_ThenThrowsArgumentNullException()
-        {
-            // Arrange, Act & Assert
-            Assert.Throws<ArgumentNullException>(() =>
-                new ExampleAApplicationService(this._db, null!));
-        }
-    }
+		[Fact]
+		public void WhenConstructedWithNullMapper_ThenThrowsArgumentNullException()
+		{
+			// Arrange, Act & Assert
+			Assert.Throws<ArgumentNullException>(() =>
+				new ExampleAApplicationService(this._repository, null!, this._logger));
+		}
+	}
 }
