@@ -1,8 +1,8 @@
 using App.Modules.KWMODULENAME.Domain.Domains.Examples.Repositories;
 using App.Modules.KWMODULENAME.Infrastructure.Data.EF;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
-using App.Modules.Sys.Infrastructure.Domains.Diagnostics;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Repositories.Implementations.Base;
+using App.Modules.Sys.Shared.Domains.Diagnostics;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Persistence.Relational.EF.Repositories.Implementations
 {

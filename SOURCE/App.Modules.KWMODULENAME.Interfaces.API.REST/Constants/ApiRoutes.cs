@@ -1,4 +1,4 @@
-using App.Modules.Sys.Substrate.Infrastructure.Constants;
+using App.Modules.Sys.Application.Domains.AccessControl.Permissions.Constants;
 
 namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Constants
 {

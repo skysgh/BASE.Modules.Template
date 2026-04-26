@@ -17,7 +17,7 @@ namespace App.Modules.KWMODULENAME
         /// Unique Lowercase Key to use as name for DbSchema 
         /// and api route fragment for this Logical Module.
         /// </summary>
-        public const string Key = "kw";
+        public const string Key = "kwmodulename";
         /// <summary>
         /// Database schema key for this module.
         /// Used as the default schema prefix in EF configurations.

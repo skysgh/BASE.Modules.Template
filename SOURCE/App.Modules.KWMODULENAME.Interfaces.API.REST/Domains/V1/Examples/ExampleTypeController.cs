@@ -30,7 +30,7 @@ namespace App.Modules.KWMODULENAME.Interfaces.API.REST.Domains.V1.Examples
     /// </para>
     /// </remarks>
     [Route(ApiRoutes.Rest.V1.ExampleTypes.Base)]
-	public class ExampleTypeController : SimpleCrudStateControllerBase<ExampleTypeDto>, IHasController
+	public class ExampleTypeController : SimpleCrudStateControllerBase<ExampleTypeDto>, IHasScopedController
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExampleTypeController"/> class.

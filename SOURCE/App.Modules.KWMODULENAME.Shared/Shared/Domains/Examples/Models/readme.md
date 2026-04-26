@@ -4,5 +4,5 @@ or Domains.
 
 Note how contracts are defined
 in the Models root, whereas
-Implemantations are defined in
+Implemantations should be defined in
 the nested Implementations root.

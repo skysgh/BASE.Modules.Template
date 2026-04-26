@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <!-- Module asset embedding (ManifestEmbeddedFileProvider support) -->
@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="_Assets\.gitkeep" />
+    <EmbeddedResource Include="_Assets\signed\.gitkeep" />
+    <EmbeddedResource Include="_Assets\unsigned\.gitkeep" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,10 +21,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Substrate\App.Modules.Sys.Substrate.csproj" />
+    <ProjectReference Include="..\..\..\BASE.Modules.Sys\SOURCE\App.Modules.Sys.Shared\App.Modules.Sys.Shared.csproj" />
     <ProjectReference Include="..\App.Modules.KWMODULENAME.Shared\App.Modules.KWMODULENAME.Shared.csproj" />
   </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="Constants\" />
         <Folder Include="Domains\Examples\Entities\Implmentations\" />
         <Folder Include="Domains\Examples\Repositories\Implementations\" />
         <Folder Include="Domains\X\Configuration\" />

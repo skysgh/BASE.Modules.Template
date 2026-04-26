@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using App.Modules.Sys.Shared.Infrastructure.Implementations;
-using App.Modules.Sys.Shared.Lifecycles;
+using App.Modules.Sys.Shared.Domains.Infrastructure.Implementations;
+using App.Modules.Sys.Shared.Domains.Lifecycles;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Services.Implementations
 {
@@ -12,13 +12,13 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Services.Impl
     /// </summary>
     /// <remarks>
     /// The service inherits from the
-    /// <see cref="InfrastructureServiceBase"/>
+    /// <see cref="InfrastructureSingletonServiceBase"/>
     /// which inherits from a contract that
     /// inherits from <see cref="IHasLifecycle"/>
     /// which ensures it is discoverable by reflection.
     /// </remarks>
     public class ExampleInfrastructureService:
-        InfrastructureServiceBase,
+        InfrastructureSingletonServiceBase,
         IExampleInfrastructureService
     {
         // In 95% of the cases, in a Logical Module,

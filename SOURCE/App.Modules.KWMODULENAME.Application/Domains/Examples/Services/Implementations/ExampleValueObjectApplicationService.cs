@@ -1,9 +1,9 @@
 using App.Modules.KWMODULENAME.Application.Domains.Examples.Dtos;
-using App.Modules.Sys.Infrastructure.Domains.Diagnostics;
 using App.Modules.Sys.Infrastructure.Services;
 using App.Modules.Sys.Application.Base;
 using App.Modules.Sys.Shared.Repositories;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
+using App.Modules.Sys.Shared.Domains.Diagnostics;
 
 namespace App.Modules.KWMODULENAME.Application.Domains.Examples.Services.Implementations
 {

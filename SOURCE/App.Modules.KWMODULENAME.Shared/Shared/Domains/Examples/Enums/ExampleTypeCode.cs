@@ -26,7 +26,8 @@ namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Enums
 	public enum ExampleTypeCode
 	{
 		/// <summary>
-		/// Not set. Indicates a programming error or uninitialised value.
+		/// Not set. Indicates a programming error or
+        /// uninitialised value.
 		/// </summary>
 		Undefined = 0,
 
@@ -36,9 +37,11 @@ namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Enums
 		Unknown = 1,
 
 		/// <summary>
-		/// Consciously left unspecified. The value is intentionally not provided.
+		/// Consciously left unspecified.
+        /// The value is intentionally not provided.
 		/// </summary>
 		Unspecified = 2,
+
 
 		/// <summary>A general-purpose example type.</summary>
 		General = 3,

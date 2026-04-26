@@ -12,7 +12,7 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Configuration
 	/// </summary>
 	/// <remarks>
 	/// Composite key (no surrogate Id) — audit columns inherited from
-	/// <see cref="Sys.Shared.Models.Entities.Base.DefaultNoneIdEntityBase"/>.
+	/// <see cref="Sys.Shared.Models.Base.DefaultNoneIdEntityBase"/>.
 	/// <c>DefineExplicitJoinEntity</c> configures composite key, both FK relationships, and indexes.
 	/// </remarks>
 	public sealed class ExampleAExampleBEFSchemaTypeConfiguration : IEFSchemaTypeConfiguration<ExampleAExampleB>

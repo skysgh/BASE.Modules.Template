@@ -1,4 +1,4 @@
-using App.Modules.Sys.Shared.Models.Entities.Base;
+using App.Modules.Sys.Shared.Models.Base;
 
 namespace App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations
 {

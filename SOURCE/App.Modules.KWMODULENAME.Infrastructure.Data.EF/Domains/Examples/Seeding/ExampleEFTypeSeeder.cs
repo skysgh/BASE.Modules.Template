@@ -1,8 +1,9 @@
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Enums;
 using App.Modules.KWMODULENAME.Shared.Domains.Examples.Models.Implmentations;
 using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema;
+using App.Modules.Sys.Infrastructure.Domains.Persistence.Relational.EF.Schema.Implementations;
+using App.Modules.Sys.Shared.Domains.Indexes;
 using App.Modules.Sys.Shared.Models.Enums;
-using App.Modules.Sys.Substrate.Shared.Indexes;
 using Microsoft.EntityFrameworkCore;
 
 namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Seeding
@@ -16,10 +17,10 @@ namespace App.Modules.KWMODULENAME.Infrastructure.Domains.Examples.Seeding
 	/// Each enum value gets a deterministic Guid via <see cref="DeterministicGuid.FromEnum{TEnum}"/>.
 	/// End users may add custom entries beyond these built-in values.
 	/// </remarks>
-	public sealed class ExampleTypeSeeder : IHasDataSeeder
-	{
+	public sealed class ExampleEFTypeSeeder : EFDataSeederBase
+    {
 		/// <inheritdoc />
-		public void Seed(ModelBuilder modelBuilder)
+		public override void Seed(ModelBuilder modelBuilder)
 		{
 			List<ExampleType> entries = new List<ExampleType>();
 			int order = 0;
