@@ -35,7 +35,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// <summary>
         /// Gets or sets the source text used by the example greeting method.
         /// </summary>
-        [ConfigurationSettingSourceAttribute(
+        [ConfigurationPropertyDescriptionAttribute(
             true,
             false,
             KWMODULENAMEConfigKeys.HelloFrom,
@@ -47,7 +47,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// <summary>
         /// Gets or sets a simple boolean value used by the example service.
         /// </summary>
-        [ConfigurationSettingSourceAttribute(
+        [ConfigurationPropertyDescriptionAttribute(
             true,
             false,
             KWMODULENAMEConfigKeys.AreYouTryingToDoGood,
@@ -59,7 +59,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// <summary>
         /// Gets or sets the selected nested service configuration implementation metadata.
         /// </summary>
-        [ConfigurationSettingSourceAttribute(
+        [ConfigurationPropertyDescriptionAttribute(
             true,
             false,
             KWMODULENAMEConfigKeys.AnotherExampleServiceImplementation,

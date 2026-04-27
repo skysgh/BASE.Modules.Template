@@ -16,7 +16,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration
     /// </remarks>
     public interface IAnotherExampleServiceConfiguration : IServiceConfiguration
     {
-        [ConfigurationSettingSourceAttribute(
+        [ConfigurationPropertyDescriptionAttribute(
             true,
             false,
             KWMODULENAMEConfigKeys.AnotherExampleServiceUrl,

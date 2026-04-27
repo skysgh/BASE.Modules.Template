@@ -21,7 +21,7 @@ namespace App.Modules.KWMODULENAME.Domain.Domains.Examples.Configuration.Impleme
         /// <summary>
         /// Gets or sets a setting specific to implementation A.
         /// </summary>
-        [ConfigurationSettingSourceAttribute(
+        [ConfigurationPropertyDescriptionAttribute(
             true,
             false,
             KWMODULENAMEConfigKeys.SomethingSpecificToServiceA,

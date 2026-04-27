@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Domains\X\**" />
+    <EmbeddedResource Remove="Domains\X\**" />
+    <None Remove="Domains\X\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="_Assets\.gitkeep" />
     <EmbeddedResource Include="_Assets\signed\.gitkeep" />
     <EmbeddedResource Include="_Assets\unsigned\.gitkeep" />
@@ -27,11 +33,9 @@
 
     <ItemGroup>
         <Folder Include="Constants\" />
-        <Folder Include="Domains\Examples\Entities\Implmentations\" />
+        <Folder Include="Domains\Examples\Entities\Implementations\" />
+        <Folder Include="Domains\Examples\Settings\" />
         <Folder Include="Domains\Examples\Repositories\Implementations\" />
-        <Folder Include="Domains\X\Configuration\" />
-        <Folder Include="Domains\X\Models\" />
-        <Folder Include="Domains\X\Services\Implementations\" />
     </ItemGroup>
 
 
@@ -40,10 +44,6 @@
       <PackagePath>\</PackagePath>
       <Pack>true</Pack>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Domains\X\Configuration\" />
   </ItemGroup>
 
 </Project>
